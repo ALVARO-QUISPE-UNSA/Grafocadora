@@ -21,3 +21,15 @@ add new vertex in adj matrix
   matrix(v).(v) = 0
     
   
+print 
+  print "v + tab"
+  for (j -> hash.set()) 
+    print j + tab
+  print \n
+  for (i -> hash.set)
+    print i + tab
+    for (j -> hash.set)
+      print matrix(i)(j) + tab
+    print \n
+    
+    
