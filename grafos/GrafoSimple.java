@@ -57,4 +57,8 @@ public class GrafoSimple {
       System.out.print('\n');
     }
   }
+  public String toString() {
+    this.print();
+    return "";
+  }
 }
