@@ -1,0 +1,23 @@
+PUT
+  Tiene vtxKey la llave de v1?
+    Si
+      Fijar en la lista el valor n con sus vertices
+    No
+      asignar el la llave de vertice.
+      actualizar valores de distancias con todos los vértices anteriores
+  lo mismo para v2.
+
+  matrix.get(hash(v1)).get(hash(v2)) = int 
+  matrix.get(hash(v2)).get(hash(v1)) = int 
+
+
+add new vertex in adj matrix
+  -
+  for i -> key.size()
+    matrix.add new list
+    for j -> key.size()
+      matrix.get(i).add(default)
+
+  matrix(v).(v) = 0
+    
+  
