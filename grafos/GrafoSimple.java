@@ -20,11 +20,14 @@ public class GrafoSimple {
    *
    */
   private void addNewVert(String v) {
-    for (int i = 0; i < vtxKey.size(); i++) {
-      adjMatrix.add( new ArrayList <Integer>() );
-      for (int j = 0; j < vtxKey.size(); j++)
-        adjMatrix.get(i).add(DEF_WEIGHT);
+    adjMatrix.add( new ArrayList <Integer>() );
+    for (int i = 0; i < vtxKey.size() - 1; i++) {
+      adjMatrix.get(i).add(DEF_WEIGHT);
     }
+    
+    for (int j = 0; j < vtxKey.size(); j++)
+      adjMatrix.get(vtxKey.size() - 1).add(DEF_WEIGHT);
+    System.out.println(adjMatrix);
   }
 
 
@@ -42,6 +45,7 @@ public class GrafoSimple {
     adjMatrix.get( vtxKey.get(v1) ).set( vtxKey.get(v2), w );
     adjMatrix.get( vtxKey.get(v2) ).set( vtxKey.get(v1), w );
   }
+
   public void print () {
     System.out.print("V" + '\t');
     for (String j : vtxKey.keySet()) 
@@ -50,7 +54,9 @@ public class GrafoSimple {
     for (String i : vtxKey.keySet()) {
       System.out.print(i + '\t');
       for (int j = 0; j < vtxKey.size(); j++)
-        System.out.print(adjMatrix.get( vtxKey.get(i) ).get(j));
+        //System.out.print(adjMatrix.get( vtxKey.get(i) ).get(j) + '\t');
+        System.out.print(adjMatrix.get( vtxKey.get(i) ));
+
       System.out.print('\n');
     }
   }
