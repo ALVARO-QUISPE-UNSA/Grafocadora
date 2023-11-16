@@ -27,7 +27,6 @@ public class GrafoSimple {
     
     for (int j = 0; j < vtxKey.size(); j++)
       adjMatrix.get(vtxKey.size() - 1).add(DEF_WEIGHT);
-    System.out.println(adjMatrix);
   }
 
 
@@ -54,9 +53,7 @@ public class GrafoSimple {
     for (String i : vtxKey.keySet()) {
       System.out.print(i + '\t');
       for (int j = 0; j < vtxKey.size(); j++)
-        //System.out.print(adjMatrix.get( vtxKey.get(i) ).get(j) + '\t');
-        System.out.print(adjMatrix.get( vtxKey.get(i) ));
-
+        System.out.print(adjMatrix.get( vtxKey.get(i) ).get(j) + "\t");
       System.out.print('\n');
     }
   }
