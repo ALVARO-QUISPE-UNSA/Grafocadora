@@ -25,8 +25,9 @@ public class GrafoSimple {
       adjMatrix.get(i).add(DEF_WEIGHT);
     }
     
-    for (int j = 0; j < vtxKey.size(); j++)
+    for (int j = 0; j < vtxKey.size() - 1; j++)
       adjMatrix.get(vtxKey.size() - 1).add(DEF_WEIGHT);
+    adjMatrix.get(vtxKey.size() - 1).add(0);
   }
 
 
@@ -60,5 +61,8 @@ public class GrafoSimple {
   public String toString() {
     this.print();
     return "";
+  }
+  public void dijkstra (GrafoSimple g) {
+    
   }
 }
