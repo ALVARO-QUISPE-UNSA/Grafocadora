@@ -8,7 +8,7 @@ import java.util.*;
     
  */
 public class GrafoSimple {
-  public static int DEF_WEIGHT = 1;
+  public static int DEF_WEIGHT = 0;
   private ArrayList<ArrayList <Integer> > adjMatrix = new ArrayList< ArrayList<Integer> > ();
   private ArrayList<ArrayList <String> > adjList = new ArrayList< ArrayList<String> > ();
   private HashMap <String, Integer> vtxKey = new HashMap <String, Integer>();
@@ -33,6 +33,9 @@ public class GrafoSimple {
   }
 
 
+  public int getW(String a, String b) {
+    return adjMatrix.get( vtxKey.get(a) ).get(vtxKey.get(b));
+  }
   public void put (String v1, Integer w, String v2) {
     //Add new vertex if it does not exit.
     if (!vtxKey.containsKey(v1)) {
@@ -41,7 +44,7 @@ public class GrafoSimple {
     }
     if (!vtxKey.containsKey(v2)) {
       vtxKey.put(v2, vtxKey.size());
-      addNewVert(v1);
+      addNewVert(v2);
     }
     //To add adjacency matrix
     adjMatrix.get( vtxKey.get(v1) ).set( vtxKey.get(v2), w );
@@ -63,8 +66,8 @@ public class GrafoSimple {
     System.out.print('\n');
     for (String i : vtxKey.keySet()) {
       System.out.print(i + '\t');
-      for (int j = 0; j < vtxKey.size(); j++)
-        System.out.print(adjMatrix.get( vtxKey.get(i) ).get(j) + "\t");
+      for (String j : vtxKey.keySet())
+        System.out.print(getW(i, j) + "\t");
       System.out.print('\n');
     }
   }

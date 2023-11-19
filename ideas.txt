@@ -33,3 +33,38 @@ print
     print \n
     
     
+    
+
+dijkstra (grafo g, String v1, vf)
+  Primero escojes el vértice inicial
+  Ese vértice lo añades al conjunto S
+  Estableces los valores temporales de cada vértice adyacente
+?  Guardas el camino de esos v.temporaes
+  Iteras por todos esos valores
+    Escojes el camino más corto
+    añades ese camino al grupo S
+    repites si el vtx no es la llegada
+
+  listAdj = copiar ListAdj      //copia de original
+  hashMap f                     //pesos finales
+  hashMap t                     //pesos temporales 
+  for (String v : tvxkey)
+    t.put (v, 2147483647)
+  f.add (v1, l)                  //añades vertice inicial con 0
+  String vi = v1;
+  int wm;
+  String ve = vi;
+  while (ve != vf) {            //Hasta que no se anñada el vtx final
+    wm = 2147483647;
+    for (listAdj vn de vi) {
+      adjlist.get (vtxkey.get(vn)).remove(vi);  //eliminar el v anterior de la adyacencia
+      int w = f.get(vi) + pesovtx(vn, vi);
+      if (w < t.get(vn))        //Si peso act es <, se cambia
+        hashMap t.put(vn, p)
+      if (hashMap t.get(vn) < w)
+        w = t.get(vn).
+        String ve = vn;
+    }
+    hash f.put(ve, hash t.get(ve))
+  }
+   
