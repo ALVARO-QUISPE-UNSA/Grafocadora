@@ -48,23 +48,25 @@ dijkstra (grafo g, String v1, vf)
   listAdj = copiar ListAdj      //copia de original
   hashMap f                     //pesos finales
   hashMap t                     //pesos temporales 
-  for (String v : tvxkey)
-    t.put (v, 2147483647)
-  f.add (v1, l)                  //añades vertice inicial con 0
+  hashMap c                     //caminos de vi a vn
+  f.add (v1, 0)                  //añades vertice inicial con 0
   String vi = v1;
-  int wm;
-  String ve = vi;
-  while (ve != vf) {            //Hasta que no se anñada el vtx final
-    wm = 2147483647;
+  int mm;
+  while (vi != vf) {            //Hasta que no se anñada el vtx final
+    mm = 2147483647;
     for (listAdj vn de vi) {
       adjlist.get (vtxkey.get(vn)).remove(vi);  //eliminar el v anterior de la adyacencia
       int w = f.get(vi) + pesovtx(vn, vi);
-      if (w < t.get(vn))        //Si peso act es <, se cambia
-        hashMap t.put(vn, p)
-      if (hashMap t.get(vn) < w)
-        w = t.get(vn).
-        String ve = vn;
+      if (vn no está en hash t) t.add(vn, w)
+      else if (w < t.get(vn))        //Si peso act es <, se cambia
+        hashMap c.put (vn, vi)
+        hashMap t.put(vn, w)
     }
-    hash f.put(ve, hash t.get(ve))
+    for (String k : hash t)
+      if (t.get(k) < mm)
+        mm = t.get(k)
+        vi = k
+    hash f.put(vi, hash t.get(vi))
+    hash t.remove(vi)
   }
    

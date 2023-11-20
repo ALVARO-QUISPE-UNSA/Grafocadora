@@ -80,7 +80,14 @@ public class GrafoSimple {
     this.print();
     return "";
   }
-  public void dijkstra (GrafoSimple g) {
-    
+  public void dijkstra (String v1, String vf) {
+    //Copy adj List
+    ArrayList copyLA = new ArrayList();
+    copyLA = (ArrayList)adjList.clone();
+    //List of weigth temp, final and paths
+    Map<String, Integer> temp = new HashMap<String, Integer>();
+    Map<String, Integer> fin = new HashMap<String, Integer>();
+    Map<String, Integer> path = new HashMap<String, Integer>();
+
   }
 }
