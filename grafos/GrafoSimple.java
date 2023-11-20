@@ -36,6 +36,9 @@ public class GrafoSimple {
   public int getW(String a, String b) {
     return adjMatrix.get( vtxKey.get(a) ).get(vtxKey.get(b));
   }
+  public ArrayList<String> getAdjVertex (String v) {
+    return adjList.get(vtxKey.get(v));
+  }
   public void put (String v1, Integer w, String v2) {
     //Add new vertex if it does not exit.
     if (!vtxKey.containsKey(v1)) {
@@ -82,12 +85,23 @@ public class GrafoSimple {
   }
   public void dijkstra (String v1, String vf) {
     //Copy adj List
-    ArrayList copyLA = new ArrayList();
-    copyLA = (ArrayList)adjList.clone();
-    //List of weigth temp, final and paths
+    //ArrayList copyLA = new ArrayList();
+    ArrayList<ArrayList <String> > copyLA = new ArrayList< ArrayList<String> > (adjList);
+    //copyLA = (ArrayList)adjList.clone();
+    //List of weight temp, final and paths
     Map<String, Integer> temp = new HashMap<String, Integer>();
     Map<String, Integer> fin = new HashMap<String, Integer>();
     Map<String, Integer> path = new HashMap<String, Integer>();
+    //Add to final v1
+    fin.put(v1, 0);
+    String vi = v1;
+    int mm;   //minimun weight
+    while (!vi.equals(vf)) {
+      mm = 2147483647;
+      for (String vn : copyLA.get(vtxKey.get(vi)) ){
+        System.out.println(vn);
+      }
+    }
 
   }
 }
