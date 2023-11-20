@@ -91,7 +91,7 @@ public class GrafoSimple {
     //List of weight temp, final and paths
     Map<String, Integer> temp = new HashMap<String, Integer>();
     Map<String, Integer> fin = new HashMap<String, Integer>();
-    Map<String, Integer> path = new HashMap<String, Integer>();
+    Map<String, String> path = new HashMap<String, String>();
     //Add to final v1
     fin.put(v1, 0);
     String vi = v1;
@@ -99,9 +99,14 @@ public class GrafoSimple {
     while (!vi.equals(vf)) {
       mm = 2147483647;
       for (String vn : copyLA.get(vtxKey.get(vi)) ){
-        copyLA.get(vtxKey.get(vi)).remove((Object)vi);
+        copyLA.get(vtxKey.get(vn)).remove((Object)vi);
         int wa = fin.get(vi) + getW(vi, vn);
-        //System.out.println(copyLA.get(vtxKey.get(vi)));
+        if (null == temp.get(vn)) temp.put(vn, wa);
+        else if (wa < temp.get(vn)) {
+          path.put(vn, vi);
+          temp.put(vn, wa);
+        }
+        System.out.println(temp.get(vn));
       }
     }
 
