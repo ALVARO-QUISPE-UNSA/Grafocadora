@@ -20,9 +20,13 @@ public class Main {
     grafo.put("K", 620, "F");
     grafo.put("D", 3130, "H");
     grafo.print();
+    /*
     System.out.println("Arista A - A");
     System.out.println(grafo.getW("A", "A"));
+    */
     System.out.println("Lista de adyacencia");
     grafo.printAdjList();
+    System.out.println("Dijkstra");
+    grafo.dijkstra("A", "Z");
   }
 }

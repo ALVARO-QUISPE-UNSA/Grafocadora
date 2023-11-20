@@ -101,22 +101,29 @@ public class GrafoSimple {
       for (String vn : copyLA.get(vtxKey.get(vi)) ){
         copyLA.get(vtxKey.get(vn)).remove((Object)vi);
         int wa = fin.get(vi) + getW(vi, vn);
-        if (null == temp.get(vn)) temp.put(vn, wa);
+        if (null == temp.get(vn)) {
+          path.put(vn, vi);
+          temp.put(vn, wa); 
+        }
         else if (wa < temp.get(vn)) {
           path.put(vn, vi);
           temp.put(vn, wa);
         }
       }
-      for (String vn : temp.keySet()) {
+      for (String vn : temp.keySet()) {   //Compare time weights
         if (temp.get(vn) < mm) {
           mm = temp.get(vn);
           vi = vn;
         }
       }
-      fin.put(vi, temp.get(vi));
-      temp.remove(vi);
+      fin.put(vi, temp.get(vi));    //Add time weight
+      temp.remove(vi);              //remove the weight
     }
-    System.out.println(vi);
+    while (path.get(vf) != null) {
+      System.out.println(vf + "\t" + getW(vf, path.get(vf)));
+      vf = path.get(vf);
+    }
+    System.out.println(v1 + "\t:)");
 
   }
 }
