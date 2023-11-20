@@ -106,9 +106,17 @@ public class GrafoSimple {
           path.put(vn, vi);
           temp.put(vn, wa);
         }
-        System.out.println(temp.get(vn));
       }
+      for (String vn : temp.keySet()) {
+        if (temp.get(vn) < mm) {
+          mm = temp.get(vn);
+          vi = vn;
+        }
+      }
+      fin.put(vi, temp.get(vi));
+      temp.remove(vi);
     }
+    System.out.println(vi);
 
   }
 }
