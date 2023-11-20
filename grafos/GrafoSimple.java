@@ -99,7 +99,9 @@ public class GrafoSimple {
     while (!vi.equals(vf)) {
       mm = 2147483647;
       for (String vn : copyLA.get(vtxKey.get(vi)) ){
-        System.out.println(vn);
+        copyLA.get(vtxKey.get(vi)).remove((Object)vi);
+        int wa = fin.get(vi) + getW(vi, vn);
+        //System.out.println(copyLA.get(vtxKey.get(vi)));
       }
     }
 
