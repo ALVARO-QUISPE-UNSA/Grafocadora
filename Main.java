@@ -2,7 +2,6 @@ import grafos.*;
 public class Main {
   public static void main(String args []) {
     GrafoSimple grafo = new GrafoSimple();
-    grafo.DEF_WEIGHT = 0;
     grafo.put("H", 578, "A");
     grafo.put("A", 818, "R");
     grafo.put("R", 1060, "M");
@@ -27,6 +26,9 @@ public class Main {
     System.out.println("Lista de adyacencia");
     grafo.printAdjList();
     System.out.println("Dijkstra");
-    grafo.dijkstra("A", "Z");
+    grafo.dijkstra("H", "Z");
+    System.out.println("Grafo del libro de Kenneth:");
+    GrafoSimple kenneth = new GrafoSimple();
+    kenneth.put("a", 1, "d");
   }
 }

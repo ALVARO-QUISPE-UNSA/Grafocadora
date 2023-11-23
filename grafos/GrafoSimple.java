@@ -1,5 +1,7 @@
 package grafos;
 import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 /*
   Necesito que el grafo esté:
     Con los su lista de adyacencia
@@ -33,9 +35,24 @@ public class GrafoSimple {
   }
 
 
+  public void readInput(String p) {
+    try {
+      File text = new File(p);
+      Scanner sc = new Scanner(text);
+      while (sc.hasNextLine()) {
+        put(sc.next(), sc.nextInt(), sc.next());
+        sc.nextLine();
+      }
+      System.out.println("Se escaneó correctamente el grafo");
+      
+    } catch ( FileNotFoundException a ) {
+      System.out.println("No se encontró la ubicación de su archivo");
+    }
+  }
   public int getW(String a, String b) {
     return adjMatrix.get( vtxKey.get(a) ).get(vtxKey.get(b));
   }
+
   public ArrayList<String> getAdjVertex (String v) {
     return adjList.get(vtxKey.get(v));
   }
@@ -84,11 +101,7 @@ public class GrafoSimple {
     return "";
   }
   public void dijkstra (String v1, String vf) {
-    //Copy adj List
-    //ArrayList copyLA = new ArrayList();
     ArrayList<ArrayList <String> > copyLA = new ArrayList< ArrayList<String> > (adjList);
-    //copyLA = (ArrayList)adjList.clone();
-    //List of weight temp, final and paths
     Map<String, Integer> temp = new HashMap<String, Integer>();
     Map<String, Integer> fin = new HashMap<String, Integer>();
     Map<String, String> path = new HashMap<String, String>();
